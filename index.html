@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru" ng-app='app'>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Корзина</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src='js/lodash.min.js'></script>
+</head>
+<body ng-controller='mainCtrl as mainCtrl' ng-cloak>
+	<div class="container">
+		<h2>Добавить продукт</h2>
+		<form class="form-inline" role="form" ng-submit='mainCtrl.addProduct()'>
+			<div class="form-group">
+				<label class="sr-only" for="exampleInputEmail2">Продукт</label>
+				<input type="text" class="form-control" id="exampleInputEmail2" placeholder="Продукт" ng-model='mainCtrl.product.name' required>
+			</div>
+			<div class="form-group">
+				<label class="sr-only" for="exampleInputPassword2">Цена</label>
+				<input type="number" class="form-control" id="exampleInputPassword2" placeholder="Цена" ng-model='mainCtrl.product.price' required>
+			</div>
+			<button type="submit" class="btn btn-default">Добавить</button>
+		</form>
+		<br><hr><br>
+		<h2>Корзина</h2>
+		<table class="table table-striped">
+			<tr>
+				<th>Продукт</th>
+				<th>Цена</th>
+				<th>Цена со скидкой</th>
+			</tr>
+			<tr ng-repeat='item in mainCtrl.getItems()'>
+				<td>{{item.name}}</td>
+				<td>{{item.price}}</td>
+				<td>{{item.sale}}</td>
+			</tr>
+		</table>
+		<br>
+		<form class='form-horizontal' role="form" ng-submit='mainCtrl.sale()' name='formSale'>
+			<div class="form-group">
+			   <label class="col-sm-2 control-label">Применить скидку</label>
+			   <div class="col-sm-1">
+			    	<input type="number" class="form-control" ng-model='mainCtrl.sizeSale' required>
+			   </div>
+			   <div class="col-sm-9">
+			   		<button type="submit" class="btn btn-default">Применить</button>
+			   </div>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript" src="js/angular/controllers/controllers.js"></script>
+	<script type="text/javascript" src="js/angular/factories/cartFactories.js"></script>
+	
+</body>
+</html>
