@@ -17,5 +17,9 @@ app.controller('mainCtrl', ['cartFactories', function(cartFactories){
 	this.sale = function(){
 		cartFactories.sale(this.sizeSale);
 	}
+	this.productDelete = function(item){
+		cartFactories.productDelete(item);
+		cartFactories.sale(this.sizeSale);
+	}
 }]);
 
