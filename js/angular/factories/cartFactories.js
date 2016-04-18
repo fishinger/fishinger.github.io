@@ -38,37 +38,47 @@ angular.module('app')
 	service.sale = function(sale){
 		if(products.length){
 			var summPrice = 0,
-				saleMas = [],
 				koef = 0,
 				summSale = 0;
 			products.map(function(e){
 				summPrice += +e.price;
 			})
+
 			koef = sale / summPrice;
+			
 			products.map(function(e){
-				var localSale = Math.round(koef*e.price);
-				saleMas.push(localSale);
-				e.sale = e.price - localSale;
-			})
-			saleMas.map(function(e){
-				summSale += e;
-			})
-			if(summSale > sale){
-				var maxSale = Math.max.apply(0,saleMas);
-				var index = saleMas.indexOf(maxSale);
-				saleMas.splice(index, 1, maxSale-1);
-				for(var i = 0; i < products.length; i++){
-					products[i].sale = products[i].price - saleMas[i];
+				var localSale = Math.floor(koef*e.price),
+					priceSale = e.price - localSale;
+				if(priceSale < 0){
+					priceSale = 0;
 				}
-			} else if(summSale < sale){
-				var maxPrice = 0,
-					maxIndex = 0;
-				for(var i = 0; i < products.length; i++){
-					if(products[i].price > maxPrice){
-						maxIndex = i;
+				e.sale = priceSale;
+			})
+			products.map(function(e){
+				summSale += (e.price - e.sale);
+			})
+			
+			if(summSale < sale){
+				var maxPrice = products[0].price,
+					maxIndex = 0,
+					differ = sale - summSale,
+					differSale = 0;
+				while(differ >= 0){
+					products.forEach(function(e, i, mass){
+						if(e.sale > 0 && e.price >= maxPrice){
+							maxPrice = e.price;
+							maxIndex = i;
+						}
+					})
+					differSale = products[maxIndex].sale - differ;
+					if(differSale < 0){
+						products[maxIndex].sale = 0;
+						differ -= Math.abs(differSale);
+					} else {
+						products[maxIndex].sale = differSale;
+						differ = -1;
 					}
 				}
-				products[maxIndex].sale -= 1;
 			}
 		}
 	}
