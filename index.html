@@ -1,172 +1,124 @@
 <!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
-
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
-    <title>arkan</title>
-    <meta name="description" content="">
+    <title></title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="msapplication-TileColor" content="#383e53">
-
-    <link rel="stylesheet" href="_assets/css/styles.min.css">
-
-    <script type="text/javascript">
-        var pathRoot = '{$doc_root}',
-            inlineScripts =  [];
-    </script>
+    <style>
+        /* In order to place the tracking correctly */
+        canvas.drawing, canvas.drawingBuffer {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
 </head>
+
 <body>
-<div id="bgndVideo" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=7GS9uc3AfHk',containment:'#wrapVideo',autoPlay:true, mute:true, startAt:0, opacity:0.6, showControls:false}"></div>
-<div class="video">
-    <a href="#" class="video__link show-catalog">Смотреть каталог весна-лето</a>
-    <div id="wrapVideo" class="video__player">
-        <div class="title">
-            <h1 class="title__top">
-                СТИЛЬНЫЙ ТРИКОТАЖ
-                <span class="title__small">Основа мужского гардероба</span>
-            </h1>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <h2 class="h2">Создайте свой образ по выгодной цене</h2>
-    <div class="sale-img"></div>
-    <h2 class="h2" id='sale-title'>Как получить выгоду</h2>
-    <div class="sale-list">
-        <div class="sale sale--next">
-            <img src="_assets/img/sale-1.png" alt="" class="sale__img">
-            <span class="sale__text">Добавьте в корзину <br>3 и более изделия,<br>учавствующие в акции</span>
-        </div>
-        <div class="sale sale--next">
-            <img src="_assets/img/sale-2.png" alt="" class="sale__img">
-            <span class="sale__text">Скидка<br>автоматически<br>рассчитается в корзине</span>
-        </div>
-        <div class="sale">
-            <img src="_assets/img/sale-3.png" alt="" class="sale__img">
-            <span class="sale__text">Получите выгоду<br>на свой заказ</span>
-        </div>
-    </div>
-    <div class="product-header">
-        <h2 class="h2">Куртки-ветровки</h2>
-        <a href="#" class="product-header__link">Перейти к покупкам</a>
-    </div>
-    <div class="slider">
-        <div class="slider-visual">
-            <div class="slider__img-wrap" data-thumb="_assets/img/products/1.jpg" data-src="_assets/img/products/1.jpg">
-                <img src="_assets/img/products/1.jpg" class="slider__img" />
-            </div>
-            <div class="slider__img-wrap" data-thumb="_assets/img/products/2.jpg" data-src="_assets/img/products/2.jpg">
-                <img src="_assets/img/products/2.jpg" class="slider__img" />
-            </div>
-            <div class="slider__img-wrap" data-thumb="_assets/img/products/3.jpg" data-src="_assets/img/products/3.jpg">
-                <img src="_assets/img/products/3.jpg" class="slider__img" />
-            </div>
-            <div class="slider__img-wrap" data-thumb="_assets/img/products/4.jpg" data-src="_assets/img/products/4.jpg">
-                <img src="_assets/img/products/4.jpg" class="slider__img" />
-            </div>
-            <div class="slider__img-wrap" data-thumb="_assets/img/products/5.jpg" data-src="_assets/img/products/5.jpg">
-                <img src="_assets/img/products/5.jpg" class="slider__img" />
-            </div>
-        </div>
-    </div>
-    <div class="product-header">
-        <h2 class="h2">РУБАШКИ, ПОЛО, ФУТБОЛКИ</h2>
-        <a href="#" class="product-header__link">Перейти к покупкам</a>
-    </div>
-    <div class="slider">
-        <div class="slider-visual">
-            <div class="slider__img-wrap" data-thumb="_assets/img/products/6.jpg" data-src="_assets/img/products/6.jpg">
-                <img src="_assets/img/products/6.jpg" class="slider__img" />
-            </div>
-            <div class="slider__img-wrap" data-thumb="_assets/img/products/7.jpg" data-src="_assets/img/products/7.jpg">
-                <img src="_assets/img/products/7.jpg" class="slider__img" />
-            </div>
-            <div class="slider__img-wrap" data-thumb="_assets/img/products/8.jpg" data-src="_assets/img/products/8.jpg">
-                <img src="_assets/img/products/8.jpg" class="slider__img" />
-            </div>
-            <div class="slider__img-wrap" data-thumb="_assets/img/products/9.jpg" data-src="_assets/img/products/9.jpg">
-                <img src="_assets/img/products/9.jpg" class="slider__img" />
-            </div>
-            <div class="slider__img-wrap" data-thumb="_assets/img/products/10.jpg" data-src="_assets/img/products/10.jpg">
-                <img src="_assets/img/products/10.jpg" class="slider__img" />
-            </div>
-        </div>
-    </div>
-    <div class="product-header">
-        <h2 class="h2">БРЮКИ CASUAL И ДЖИНСЫ</h2>
-        <a href="#" class="product-header__link">Перейти к покупкам</a>
-    </div>
-    <div class="slider">
-        <div class="slider-visual">
-            <div class="slider__img-wrap" data-thumb="_assets/img/products/11.jpg" data-src="_assets/img/products/11.jpg">
-                <img src="_assets/img/products/11.jpg" class="slider__img" />
-            </div>
-            <div class="slider__img-wrap" data-thumb="_assets/img/products/12.jpg" data-src="_assets/img/products/12.jpg">
-                <img src="_assets/img/products/12.jpg" class="slider__img" />
-            </div>
-            <div class="slider__img-wrap" data-thumb="_assets/img/products/13.jpg" data-src="_assets/img/products/13.jpg">
-                <img src="_assets/img/products/13.jpg" class="slider__img" />
-            </div>
-            <div class="slider__img-wrap" data-thumb="_assets/img/products/14.jpg" data-src="_assets/img/products/14.jpg">
-                <img src="_assets/img/products/14.jpg" class="slider__img" />
-            </div>
-            <div class="slider__img-wrap" data-thumb="_assets/img/products/15.jpg" data-src="_assets/img/products/15.jpg">
-                <img src="_assets/img/products/15.jpg" class="slider__img" />
-            </div>
-        </div>
-    </div>
-    <div class="product-header">
-        <h2 class="h2">ОБУВЬ И АКСЕССАУРЫ</h2>
-        <a href="#" class="product-header__link">Перейти к покупкам</a>
-    </div>
-    <div class="slider">
-        <div class="slider-visual">
-            <div class="slider__img-wrap" data-thumb="_assets/img/products/16.jpg" data-src="_assets/img/products/16.jpg">
-                <img src="_assets/img/products/16.jpg" class="slider__img" />
-            </div>
-            <div class="slider__img-wrap" data-thumb="_assets/img/products/17.jpg" data-src="_assets/img/products/17.jpg">
-                <img src="_assets/img/products/17.jpg" class="slider__img" />
-            </div>
-            <div class="slider__img-wrap" data-thumb="_assets/img/products/18.jpg" data-src="_assets/img/products/18.jpg">
-                <img src="_assets/img/products/18.jpg" class="slider__img" />
-            </div>
-            <div class="slider__img-wrap" data-thumb="_assets/img/products/19.jpg" data-src="_assets/img/products/19.jpg">
-                <img src="_assets/img/products/19.jpg" class="slider__img" />
-            </div>
-            <div class="slider__img-wrap" data-thumb="_assets/img/products/20.jpg" data-src="_assets/img/products/20.jpg">
-                <img src="_assets/img/products/20.jpg" class="slider__img" />
-            </div>
-        </div>
-    </div>
-    <h2 class="h2">АКЦИИ HENDERSON</h2>
-    <a href="#" class="action"></a>
-    <h2 class="h2">УДОБСТВО ДОСТАВКИ</h2>
-    <div class="delivery-list">
-        <div class="delivery">
-            <img src="_assets/img/delivery-1.png" alt="" class="delivery__img">
-            <span class="delivery__text">
-                БЕСПЛАТНАЯ ДОСТАВКА<br>
-                при любом заказе до 8 апреля <br>
-                <a href="#">Подробнее</a>
-                </span>
-        </div>
-        <div class="delivery">
-            <img src="_assets/img/delivery-2.png" alt="" class="delivery__img">
-            <span class="delivery__text">
-                САМОВЫВОЗ В ДЕНЬ ЗАКАЗА<br>
-                Закажите на сайте – заберите в салоне<br>
-                <a href="#">Подробнее</a>
-                </span>
-        </div>
-    </div>
-</div>
+<!-- Div to show the scanner -->
+<div id="scanner-container"></div>
+<input type="button" id="btn" value="Start/Stop the scanner" />
+
+<!-- Include the image-diff library -->
+<script src="js/quagga.min.js"></script>
+
+<script>
+    var _scannerIsRunning = false;
+
+    function startScanner() {
+        Quagga.init({
+            inputStream: {
+                name: "Live",
+                type: "LiveStream",
+                target: document.querySelector('#scanner-container'),
+                constraints: {
+                    width: 480,
+                    height: 320,
+                    facingMode: "environment"
+                },
+            },
+            decoder: {
+                readers: [
+                    "code_128_reader",
+                    "ean_reader",
+                    "ean_8_reader",
+                    "code_39_reader",
+                    "code_39_vin_reader",
+                    "codabar_reader",
+                    "upc_reader",
+                    "upc_e_reader",
+                    "i2of5_reader"
+                ],
+                debug: {
+                    showCanvas: true,
+                    showPatches: true,
+                    showFoundPatches: true,
+                    showSkeleton: true,
+                    showLabels: true,
+                    showPatchLabels: true,
+                    showRemainingPatchLabels: true,
+                    boxFromPatches: {
+                        showTransformed: true,
+                        showTransformedBox: true,
+                        showBB: true
+                    }
+                }
+            },
+
+        }, function (err) {
+            if (err) {
+                console.log(err);
+                return
+            }
+
+            console.log("Initialization finished. Ready to start");
+            Quagga.start();
+
+            // Set flag to is running
+            _scannerIsRunning = true;
+        });
+
+        Quagga.onProcessed(function (result) {
+            var drawingCtx = Quagga.canvas.ctx.overlay,
+                drawingCanvas = Quagga.canvas.dom.overlay;
+
+            if (result) {
+                if (result.boxes) {
+                    drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute("width")), parseInt(drawingCanvas.getAttribute("height")));
+                    result.boxes.filter(function (box) {
+                        return box !== result.box;
+                    }).forEach(function (box) {
+                        Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, { color: "green", lineWidth: 2 });
+                    });
+                }
+
+                if (result.box) {
+                    Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, { color: "#00F", lineWidth: 2 });
+                }
+
+                if (result.codeResult && result.codeResult.code) {
+                    Quagga.ImageDebug.drawPath(result.line, { x: 'x', y: 'y' }, drawingCtx, { color: 'red', lineWidth: 3 });
+                }
+            }
+        });
 
 
-<script src="_assets/_plugins-all.min.js"></script>
-<script src="_assets/_js.min/scripts-func.min.js"></script>
-<script src="_assets/_js.min/scripts.min.js"></script>
+        Quagga.onDetected(function (result) {
+            console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
+        });
+    }
 
-<!--site map-->
-<script src="_sm/svksitemap.js"></script>
+
+    // Start/stop scanner
+    document.getElementById("btn").addEventListener("click", function () {
+        if (_scannerIsRunning) {
+            Quagga.stop();
+        } else {
+            startScanner();
+        }
+    }, false);
+</script>
 </body>
+
 </html>
